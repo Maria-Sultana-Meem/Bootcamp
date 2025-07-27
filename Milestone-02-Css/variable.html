@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable</title>
+    <style>
+    :root{
+        --primary-color: blue;
+        --secondary-color:green;
+        --font-size:20px;
+
+    }
+    h1{
+        color: var(--primary-color);
+        font-size: var(--font-size);
+    }
+    p{
+        color: var(--secondary-color);
+        border:1px solid red;
+        width: calc(100% - 300px);
+    }
+    .sidebar{
+        background-color: red;
+        
+    }
+    .content{
+        background-color: black;
+       
+    }
+      
+    .container{
+        display: grid;
+        gap: 20px;
+        grid-template-rows: 500px;
+        grid-template-columns: 200px calc(100% - 200px - 20px);
+    }
+    </style>
+</head>
+<body>
+    
+
+ <h1>Maria Sultana Meem</h1>
+ <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, veniam?</p>
+<div class="container">
+    <div class="sidebar"></div>
+    <div class="content"></div>
+</div>
+
+
+</body>
+</html>
+
