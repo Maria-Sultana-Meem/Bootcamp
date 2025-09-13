@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <h1>Dom Events</h1>
+    <input type="text" name="" id="name-input">
+    <button onclick="addName()">Add Name</button>
+    <div id="name-container"></div>
+
+
+
+
+    <script>
+
+    function addName (){
+        const nameInput= document.getElementById('name-input')
+         const newName=nameInput.value;
+      const nameContainer = document.getElementById('name-container');
+     const p = document.createElement('p')
+      p.innerText=newName;
+      nameContainer.appendChild(p);
+      nameInput.value=''
+    }    
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<button onclick="console.log('i am clicked')
+">Click me</button>
+
+<button onclick="makeYellow()">Make yellow</button>
+<button onclick="makeRed()">Make Red</button>
+
+<button id="btn-make-blue">Make Blue</button>
+
+<script>
+    // option 1
+function makeYellow(){
+    document.body.style.backgroundColor='yellow'
+}
+function makeRed(){
+    document.body.style.backgroundColor='red'
+}
+// option 2
+const btnMakeBlue = document.getElementById('btn-make-blue');
+btnMakeBlue.onclick=function makeBlue(){
+    document.body.style.backgroundColor='blue'
+
+}
+
+
+
+</script>
+
+
+
+    
+</body>
+</html>
