@@ -27,10 +27,7 @@ const ProductForm = ({handleAddProduct}) => {
         // console.log(newProduct);
        
             handleAddProduct(newProduct)
-        
       
-
-        
     }
     return (
         <div className='border w-[400px] mx-auto p-6 rounded-lg mt-11'>
