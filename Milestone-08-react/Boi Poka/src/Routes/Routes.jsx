@@ -18,7 +18,7 @@ import ReadList from '../Pages/ReadList/ReadList';
     children:[
       {
         index:true,
-        loader:()=>fetch('booksData.json'),
+        loader:()=>fetch('/booksData.json'),
         path:"/",
         Component:Home
 
@@ -28,21 +28,23 @@ import ReadList from '../Pages/ReadList/ReadList';
       },
       {
      path:'/bookDetails/:id',
-     loader:()=>fetch('booksData.json'),
+     loader:()=>fetch('/booksData.json'),
      Component:BooksDetails
       },
       {
           path:"/readList",
-          loader:()=>fetch('booksData.json'),
+          loader:()=>fetch('/booksData.json'),
           Component:ReadList
       },
-        {
+        
+      
+    ]
+
+    
+  },
+  {
       path:'*',
       element: <h3>Not Found : 404 status</h3>
 
       }
-      
-    ]
-    
-  },
 ])
