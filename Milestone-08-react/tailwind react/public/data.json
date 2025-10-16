@@ -1,0 +1,34 @@
+[
+  {
+    "plan": "Basic",
+    "price": "$25/month",
+    "description": "Essential access for beginners.",
+    "features": [
+      "Access to all gym equipment",
+      "Locker room & showers",
+      "1 free fitness assessment"
+    ]
+  },
+  {
+    "plan": "Standard",
+    "price": "$50/month",
+    "description": "Best for regular members who want more variety.",
+    "features": [
+      "All Basic features",
+      "Unlimited group classes",
+      "Free WiFi & lounge access",
+      "Discounts on supplements"
+    ]
+  },
+  {
+    "plan": "Premium",
+    "price": "$90/month",
+    "description": "Full access with extra perks.",
+    "features": [
+      "All Standard features",
+      "2 personal trainer sessions/month",
+      "Access to sauna & spa",
+      "Priority equipment booking"
+    ]
+  }
+]
