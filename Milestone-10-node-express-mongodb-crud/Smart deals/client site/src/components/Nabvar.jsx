@@ -82,7 +82,7 @@ const Nabvar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Smart Deals</a>
+        <Link to='/' className="btn btn-ghost text-xl">Smart Deals</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu flex justify-center items-center gap-3 menu-horizontal px-1">

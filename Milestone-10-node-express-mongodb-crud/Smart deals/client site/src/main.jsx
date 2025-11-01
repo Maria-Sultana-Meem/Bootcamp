@@ -14,6 +14,7 @@ import MyBids from './components/MyBids.jsx';
 import PrivateRoute from './privateRoute/PrivateRoute.jsx';
 import ProductDetails from './components/ProductDetails.jsx';
 
+
 const router = createBrowserRouter([
  {
   path:'/',
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
   children:[
     {
       index:true,
+      path:'/',
       Component:Home
     },{
       path:'/allProducts',
@@ -30,6 +32,7 @@ const router = createBrowserRouter([
       path:'/register',
       Component:Register
     },
+   
     {
       path:'/myProducts',
       element:<PrivateRoute><MyProducts></MyProducts></PrivateRoute>

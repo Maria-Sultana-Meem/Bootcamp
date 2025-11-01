@@ -1,8 +1,10 @@
 import React, { use } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router";
 
 const Register = () => {
     const{ signInWithGoogle }=use(AuthContext)
+    const navigate= useNavigate()
     const handleSignInWithGoogle =()=>{
       signInWithGoogle()
       .then(res=>{
@@ -24,8 +26,10 @@ const Register = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log("data after save user",data);
+
             
         })
+        navigate('/')
       })
       .catch(e=>{
         console.log(e.message);

@@ -6,7 +6,7 @@ const latestProductPromise = fetch('http://localhost:3000/latest-products').then
 const Home = () => {
     return (
         <div>
-            <h1>This is home</h1>
+            <h1></h1>
             <Suspense fallback={<p>Loading........</p>}>
                 <LatestProducts latestProductPromise={latestProductPromise}></LatestProducts>
             </Suspense>
