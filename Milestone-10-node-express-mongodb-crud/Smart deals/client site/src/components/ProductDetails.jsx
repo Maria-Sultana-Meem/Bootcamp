@@ -10,13 +10,17 @@ const ProductDetails = () => {
   const { user } = use(AuthContext);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/products/bids/${product._id}`)
+    fetch(`http://localhost:3000/products/bids/${product._id}`,{
+       headers:{
+            authorization:`Bearer ${user.accessToken}`
+          }
+    })
       .then((res) => res.json())
       .then((data) => {
         setBids(data);
         console.log("bids for this product", data);
       });
-  }, [product._id]);
+  }, [product._id,user]);
 
   const handleBidModal = () => {
     bidModalRef.current.showModal();
@@ -79,7 +83,7 @@ const ProductDetails = () => {
             Title: <span className="text-primary">{product.title}</span>
           </p>
           <p className="font-bold text-xl">
-            Title:{" "}
+            Price:{" "}
             <span className="text-red-500">
               ${product.price_min}-{product.price_max}
             </span>
