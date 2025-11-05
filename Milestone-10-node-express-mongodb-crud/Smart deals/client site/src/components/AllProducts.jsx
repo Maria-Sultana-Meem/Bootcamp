@@ -1,6 +1,6 @@
 import React, { use } from "react";
 import { Link } from "react-router";
-const productPromise = fetch("http://localhost:3000/products").then((res) =>
+const productPromise = fetch("https://smart-deals-psi.vercel.app/products").then((res) =>
   res.json()
 );
 
