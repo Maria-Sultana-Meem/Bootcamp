@@ -10,7 +10,7 @@ const MyProducts = () => {
   useEffect(() => {
     if (!user) return;
 
-    fetch(`http://localhost:3000/myproducts`, {
+    fetch(`https://smart-deals-psi.vercel.app/myproducts`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },

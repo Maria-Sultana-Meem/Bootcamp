@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import LatestProducts from './LatestProducts';
 import Banner from './Banner';
 
-const latestProductPromise = fetch('http://localhost:3000/latest-products').then(res=>res.json())
+const latestProductPromise = fetch('https://smart-deals-psi.vercel.app/latest-products').then(res=>res.json())
 
 const Home = () => {
     return (

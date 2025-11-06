@@ -12,7 +12,7 @@ const ProductDetails = () => {
 
  
   useEffect(() => {
-    fetch(`http://localhost:3000/products/bids/${product._id}`,{
+    fetch(`https://smart-deals-psi.vercel.app/products/bids/${product._id}`,{
        headers:{
             authorization:`Bearer ${user.accessToken}`
           }
@@ -37,7 +37,7 @@ const ProductDetails = () => {
     price_max: product.price_max,
     userId: user?.uid,
   };
-   fetch('http://localhost:3000/myproducts', {
+   fetch('https://smart-deals-psi.vercel.app/myproducts', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ const ProductDetails = () => {
       bid_price: bid,
       status: "pending",
     };
-    fetch("http://localhost:3000/bids", {
+    fetch("https://smart-deals-psi.vercel.app/bids", {
       method: "POST",
       headers: {
         "content-type": "application/json",

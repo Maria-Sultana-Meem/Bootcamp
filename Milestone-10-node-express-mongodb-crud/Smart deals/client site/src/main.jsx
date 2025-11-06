@@ -28,7 +28,7 @@ const router = createBrowserRouter([
     },{
       path:'/allProducts',
       Component:AllProducts,
-      loader:()=>fetch("http://localhost:3000/products")
+      loader:()=>fetch("https://smart-deals-psi.vercel.app/products")
     },
     {
       path:'/register',
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
     },
     {
       path:'/productDetails/:id',
-      loader:({params})=>fetch(`http://localhost:3000/products/${params.id}`),
+      loader:({params})=>fetch(`https://smart-deals-psi.vercel.app/products/${params.id}`),
      element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>
     },
     

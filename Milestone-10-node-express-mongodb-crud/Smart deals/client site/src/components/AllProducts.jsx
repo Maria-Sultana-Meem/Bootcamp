@@ -9,7 +9,7 @@ const AllProducts = () => {
     e.preventDefault()
     const search_Text = e.target.search.value
     setLoading(true)
-    fetch(`http://localhost:3000/search?search=${search_Text}`)
+    fetch(`https://smart-deals-psi.vercel.app/search?search=${search_Text}`)
     .then(res=>res.json())
     .then(data=>{
        setModels(data)
