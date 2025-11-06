@@ -15,6 +15,7 @@ import PrivateRoute from './privateRoute/PrivateRoute.jsx';
 import ProductDetails from './components/ProductDetails.jsx';
 
 
+
 const router = createBrowserRouter([
  {
   path:'/',
@@ -26,7 +27,8 @@ const router = createBrowserRouter([
       Component:Home
     },{
       path:'/allProducts',
-      Component:AllProducts
+      Component:AllProducts,
+      loader:()=>fetch("http://localhost:3000/products")
     },
     {
       path:'/register',
@@ -34,7 +36,7 @@ const router = createBrowserRouter([
     },
    
     {
-      path:'/myProducts',
+      path:'/myproducts',
       element:<PrivateRoute><MyProducts></MyProducts></PrivateRoute>
     },
     {
@@ -43,7 +45,7 @@ const router = createBrowserRouter([
     },
     {
       path:'/productDetails/:id',
-      loader:({params})=>fetch(`https://smart-deals-psi.vercel.app/products/${params.id}`),
+      loader:({params})=>fetch(`http://localhost:3000/products/${params.id}`),
      element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>
     },
     

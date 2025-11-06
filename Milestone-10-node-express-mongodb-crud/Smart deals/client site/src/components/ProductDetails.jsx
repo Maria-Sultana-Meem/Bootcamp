@@ -12,7 +12,7 @@ const ProductDetails = () => {
 
  
   useEffect(() => {
-    fetch(`https://smart-deals-psi.vercel.app/products/bids/${product._id}`,{
+    fetch(`http://localhost:3000/products/bids/${product._id}`,{
        headers:{
             authorization:`Bearer ${user.accessToken}`
           }
@@ -27,6 +27,39 @@ const ProductDetails = () => {
   const handleBidModal = () => {
     bidModalRef.current.showModal();
   };
+
+  const handleConfirm = () => {
+  const confirmedProduct = {
+    productId: product._id,
+    title: product.title,
+    image: product.image,
+    price_min: product.price_min,
+    price_max: product.price_max,
+    userId: user?.uid,
+  };
+   fetch('http://localhost:3000/myproducts', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${user.accessToken}`,
+    },
+    body: JSON.stringify(confirmedProduct),
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.insertedId) {
+        Swal.fire({
+          position: 'top-center',
+          icon: 'success',
+          title: 'Product confirmed and added to My Products',
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      }
+    })
+    .catch(err => console.log(err));
+};
+
   const handleBidSubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -42,7 +75,7 @@ const ProductDetails = () => {
       bid_price: bid,
       status: "pending",
     };
-    fetch("https://smart-deals-psi.vercel.app/bids", {
+    fetch("http://localhost:3000/bids", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -72,8 +105,8 @@ const ProductDetails = () => {
 
   return (
     <>
-      <div className="mt-10 w-10/12 mx-auto">
-        <div className="p-6 w-1/2 mx-auto shadow-sm space-y-5">
+      <div className="pt-30 pb-10 w-10/12 mx-auto">
+        <div className="p-6 w-1/2 mx-auto bg-[#f4349e56] shadow-sm space-y-5">
           <div className="flex justify-center">
             <img
               className="rounded-full w-[300px]"
@@ -101,9 +134,14 @@ const ProductDetails = () => {
             So his girlfriend decided she will sell her boyfriend to make money,
             cutting out all his organs. If you want, confirm.
           </p>
-          <button onClick={handleBidModal} className="btn-primary btn w-full">
+          <div className="flex justify-between">
+            <button onClick={handleBidModal} className="btn-primary btn w-full">
             I want to Buy This Product
           </button>
+          <button onClick={handleConfirm} className="btn-primary btn w-full">
+            Confirm
+          </button>
+          </div>
 
           <dialog
             ref={bidModalRef}

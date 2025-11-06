@@ -6,7 +6,7 @@ const RecentProduct = ({product}) => {
   
     
     return (
-        <div className="card bg-base-100 hover:scale-105 transition ease-in-out  shadow-sm">
+        <div data-aos="zoom-in-up" className="card bg-[#f4349e9f] hover:scale-105 transition ease-in-out  shadow-sm">
   <figure className="px-10 pt-10">
     <img
       src={image}

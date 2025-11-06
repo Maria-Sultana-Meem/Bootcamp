@@ -7,7 +7,7 @@ const MyBids = () => {
     const [bids,setBids]=useState([])
     useEffect(()=>{
      if (user?.email) {
-        fetch(`https://smart-deals-psi.vercel.app/bids?email=${user.email}`,{
+        fetch(`http://localhost:3000/bids?email=${user.email}`,{
           headers:{
             authorization:`Bearer ${user.accessToken}`
           }
@@ -34,7 +34,7 @@ const MyBids = () => {
 }).then((result) => {
   if (result.isConfirmed) {
 
- fetch(`https://smart-deals-psi.vercel.app/bids/${_id}`,{
+ fetch(`http://localhost:3000/bids/${_id}`,{
     method:"DELETE",
    
  })
@@ -58,7 +58,7 @@ const MyBids = () => {
     }
 
     return (
-        <div className='w-10/12 mx-auto mt-10'>
+        <div className='w-10/12 mx-auto pt-30 h-screen overflow-hidden'>
             <h1 className='font-bold text-2xl'>My Bids : <span className='text-red-500'>{bids.length}</span></h1>
             <div className="overflow-x-auto">
             <table className="table">
