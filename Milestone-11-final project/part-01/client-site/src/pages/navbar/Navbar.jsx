@@ -1,10 +1,11 @@
 import React, {  useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import logo from '../../assets/logo.png'
-// import { AuthContext } from "../context/AuthContext";
+import useAuth from "../../hooks/useAuth";
+
 
 const Nabvar = () => {
-//   const { user, signOutUser } = use(AuthContext);
+const {user,logOut}=useAuth()
   const [theme, setTheme] = useState(localStorage.getItem('theme') || "light")
   
     useEffect(() => {
@@ -17,7 +18,7 @@ const Nabvar = () => {
     const handleTheme = (checked) => {
       setTheme(checked ? "dark": "light")
     }
-//   const handleSignOut = () => {
+
 //     signOutUser()
 //       .then(() => {
 //         alert("sign out succesfull");
@@ -45,30 +46,18 @@ const Nabvar = () => {
        Coverage
       </NavLink>
 
-      {/* {user && (
-        <>
-          <NavLink
-            to="/myProducts"
-            className={({ isActive }) =>
-              isActive ? "bg-red-500 btn text-white" : ""
-            }
-          >
-            My Products
-          </NavLink>
-          <NavLink
-            to="/myBids"
-            className={({ isActive }) =>
-              isActive ? "bg-red-500 btn text-white" : ""
-            }
-          >
-            My Bids
-          </NavLink>
-        </>
-      )} */}
+     
     </>
   );
 
-
+const handleSignOut=()=>{
+  logOut()
+  .then()
+  .catch(err=>{
+    console.log(err);
+    
+  })
+}
 
   
   return (
@@ -149,18 +138,22 @@ const Nabvar = () => {
             </svg>
           </label>
         </div>
-        {/* {user ? (
+        {user ? (
           <button
             onClick={handleSignOut}
-            className="btn btn-primary:hover btn-primary"
+            className="btn btn-primary:hover "
           >
-            Sign Out
+            Log Out
           </button>
         ) : (
-          <Link to="/register" className="btn btn-primary:hover btn-primary">
+          <Link to="/login" className="btn btn-primary:hover ">
             Login
           </Link>
-        )} */}
+        )}
+        
+        <Link to="/rider" className="btn btn-primary:hover text-black btn-primary">
+            Be a Rider
+          </Link>
       </div>
     </div>
     </div>
