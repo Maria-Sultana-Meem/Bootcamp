@@ -7,6 +7,10 @@ import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import PrivateRoute from "./PrivateRoute";
 import Rider from "../pages/rider/Rider";
+import AboutUS from "../pages/home/AboutUS";
+import SendParcel from "../pages/home/SendParcel";
+import DashboardLayout from "../layout/DashboardLayout";
+import MyParcel from "../dashboard/MyParcel";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +31,15 @@ export const router = createBrowserRouter([
       path:'/rider',
       element:<PrivateRoute><Rider></Rider></PrivateRoute>
     }
+    ,{
+      path:'/aboutUs',
+      element:<AboutUS></AboutUS>
+    }
+    ,{
+      path:'/sendParcel',
+      element:<PrivateRoute><SendParcel></SendParcel></PrivateRoute>,
+      loader:()=>fetch('/warehouses.json').then(res=>res.json())
+    }
 ]
   },
   {
@@ -40,6 +53,16 @@ export const router = createBrowserRouter([
       {
         path:'/register',
         Component:Register
+      }
+    ]
+  },
+   {
+    path:'/dashboard',
+    element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    children:[
+      {
+        path:'myParcel',
+        element:<MyParcel></MyParcel>
       }
     ]
   }

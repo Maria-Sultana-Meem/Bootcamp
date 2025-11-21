@@ -32,7 +32,7 @@ const {user,logOut}=useAuth()
       <NavLink
         to="/"
         className={({ isActive }) =>
-          isActive ? "bg-red-500 btn text-white" : ""
+          isActive ? "bg-[#c5fc21] btn text-white" : ""
         }
       >
         Services
@@ -40,14 +40,42 @@ const {user,logOut}=useAuth()
       <NavLink
         to="/coverage"
         className={({ isActive }) =>
-          isActive ? "bg-red-500 btn text-white" : ""
+          isActive ? "bg-[#c5fc21] btn text-white" : ""
         }
       >
        Coverage
       </NavLink>
-
-     
+      <NavLink
+        to="/aboutUs"
+        className={({ isActive }) =>
+          isActive ? "bg-[#c5fc21] btn text-white" : ""
+        }
+      >
+      About US
+      </NavLink>
+      <NavLink
+        to="/sendParcel"
+        className={({ isActive }) =>
+          isActive ? "bg-[#c5fc21] btn text-white" : ""
+        }
+      >
+      Send Parcel
+      </NavLink>
+        {
+          user && <>
+          <NavLink
+        to="/dashboard/myParcel"
+        className={({ isActive }) =>
+          isActive ? "bg-[#c5fc21] btn text-white" : ""
+        }
+      >
+     My Parcels
+      </NavLink>
+          
+          </>
+        } 
     </>
+
   );
 
 const handleSignOut=()=>{
