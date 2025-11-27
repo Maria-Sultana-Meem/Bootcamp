@@ -26,9 +26,16 @@ const paymentInfo={
     senderEmail:parcel.senderEmail,
     parcelName:parcel.parcelName
 }
-const res = await axiosSecure.post('/create-checkout-session',paymentInfo)
-console.log(res.data);
-window.location.href=res.data.url;
+ console.log("Payment info:", paymentInfo);
+ 
+
+  try {
+    const res = await axiosSecure.post('/create-checkout-session', paymentInfo);
+    console.log(res.data);
+    window.location.href = res.data.url;
+  } catch (err) {
+    console.error("Stripe create session error:", err.response?.data || err.message);
+  }
 
 }
 
