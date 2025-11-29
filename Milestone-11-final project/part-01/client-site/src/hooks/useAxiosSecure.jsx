@@ -4,7 +4,7 @@ import useAuth from './useAuth';
 import { useNavigate } from 'react-router';
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://zap-shift-server-ashy.vercel.app',
   
 })
 
@@ -16,7 +16,7 @@ const useAxiosSecure = () => {
  const reqInterceptor = axiosSecure.interceptors.request.use(
   async (config) => {
     if (user) {
-      // 🔥 Correct: always use getIdToken()
+      
       const token = await user.getIdToken(); 
       config.headers.Authorization = `Bearer ${token}`;
     }

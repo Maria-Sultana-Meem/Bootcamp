@@ -64,6 +64,7 @@ const handleParcelDelete=(id)=>{
               <th>Name</th>
               <th>Cost</th>
               <th>Payment</th>
+              <th>Tracking id</th>
               <th>Delivery Status</th>
               <th>Actions</th>
             </tr>
@@ -81,7 +82,8 @@ const handleParcelDelete=(id)=>{
                 <button className="btn btn-sm btn-prmary text-black">Pay</button>
                 </Link>
                 }</td>
-              <td>{parcel.deliveryStatus}</td>
+              <td>{parcel.trackingId}</td>
+              <td>{parcel.deliiveryStatus}</td>
              
               <td>
                 <button className="btn btn-square hover:bg-primary">

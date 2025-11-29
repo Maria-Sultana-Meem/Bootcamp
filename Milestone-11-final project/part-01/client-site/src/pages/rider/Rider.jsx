@@ -34,7 +34,7 @@ const Rider = () => {
         Swal.fire({
           position: "top-end",
 
-          title: "Parcel has created. Please Pay!",
+          
           text: "Your application has been submited.We will reach to you in 30 days",
           showConfirmButton: false,
           timer: 2000,
